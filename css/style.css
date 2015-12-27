@@ -1,0 +1,13 @@
+body {
+  padding-top: 50px;
+}
+.main-container {
+  padding: 40px 15px;
+  text-align: center;
+}
+#show-result{
+	margin-top: 20px;
+}
+td{
+	text-align: left;	
+}
