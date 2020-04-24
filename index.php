@@ -29,7 +29,7 @@
     </nav>
     <div class="container">
       <div class="main-container">
-          <h1>Verify Envato Purchase Code</h1>
+          <h1>Verify Envato Purchase Code <small>uses envato API v3</small></h1>
           <p class="lead">provide purchase code in the input below and get the data.</p>
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -53,7 +53,7 @@
             </div>
           </div>
       </div>
-      <div class="row"><center>Copyright &copy; 2016 ThemeNcode. Powered by <a href="http://themencode.com/" target="_blank">ThemeNcode</a></center></div>
+      <div class="row"><center>Copyright &copy; <?php echo date("Y") ?> ThemeNcode. <br> Powered by <a href="http://themencode.com/" target="_blank">ThemeNcode</a>, author of best selling <a href="https://codecanyon.net/item/pdf-viewer-for-wordpress/8182815/" target="_blank">PDF Viewer for WordPress plugin</a>. </center></div>
     </div><!-- /.container -->
     <script type="text/javascript">
       $(document).ready( function() {

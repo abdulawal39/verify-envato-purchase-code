@@ -2,7 +2,8 @@
 class EnvatoApi2 {
     // Bearer, no need for OAUTH token, change this to your bearer string
     // https://build.envato.com/api/#token
-    private static $bearer = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+    
+    private static $bearer = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // replace the API key here.
     
     static function getPurchaseData( $code ) {
       
@@ -13,7 +14,7 @@ class EnvatoApi2 {
       $header[] = 'Content-type: application/json; charset=utf-8';
       $header[] = 'Authorization: ' . $bearer;
       
-      $verify_url = 'https://api.envato.com/v1/market/private/user/verify-purchase:'.$code.'.json';
+      $verify_url = 'https://api.envato.com/v3/market/author/sale/';
       $ch_verify = curl_init( $verify_url . '?code=' . $code );
       
       curl_setopt( $ch_verify, CURLOPT_HTTPHEADER, $header );
@@ -39,17 +40,17 @@ class EnvatoApi2 {
       if ( 
           (false === $verify_obj) || 
           !is_object($verify_obj) ||
-          !isset($verify_obj->{"verify-purchase"}) ||
-          !isset($verify_obj->{"verify-purchase"}->item_name)
+          isset($verify_obj->error) ||
+          !isset($verify_obj->sold_at)
       )
         return -1;
 
       // If empty or date present, then it's valid
       if (
-        $verify_obj->{"verify-purchase"}->supported_until == "" ||
-        $verify_obj->{"verify-purchase"}->supported_until != null
+        $verify_obj->supported_until == "" ||
+        $verify_obj->supported_until != null
       )
-        return $verify_obj->{"verify-purchase"};  
+        return $verify_obj;  
       
       // Null or something non-string value, thus support period over
       return 0;
