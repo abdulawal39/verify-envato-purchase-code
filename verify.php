@@ -56,7 +56,7 @@ if(isset($_POST['purchase_code'])){
           echo $output;
           break;
         default:
-          echo $output;
+          echo $output_table;
           break;
       }
     } else {
